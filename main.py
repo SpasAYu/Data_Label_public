@@ -37,8 +37,10 @@ def main():
     
     # File upload section
     with st.expander("Upload Images", expanded=True):
-        has_new_uploads, new_image_paths = uploader.render()
-        if has_new_uploads:
+        _, new_image_paths = uploader.render()
+        # Always update session_state.image_paths when any images exist,
+        # whether newly uploaded or previously present on disk
+        if new_image_paths:
             st.session_state.image_paths = new_image_paths
             st.session_state.current_image_idx = 0
     
