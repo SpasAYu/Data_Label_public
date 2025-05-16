@@ -1,0 +1,18 @@
+# Основные зависимости
+streamlit==1.32.2
+opencv-python-headless==4.9.0.80
+numpy==1.26.4
+ultralytics==8.1.24
+
+# Дополнительные утилиты
+pillow==10.2.0
+python-dotenv==1.0.1
+requests==2.31.0
+shutilwhich==1.1.0
+pathlib==1.0.1
+
+# Для разработки (опционально)
+pylint==3.1.0
+black==24.3.0
+flake8==7.0.0
+autopep8==2.1.0

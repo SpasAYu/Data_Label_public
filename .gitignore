@@ -1,0 +1,59 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# Streamlit secrets
+.secrets/
+.streamlit/secrets.toml
+
+# Project data folders
+data/
+!data/README.md  # Исключение - сохраняем README в папке data
+
+# Model files
+*.pt
+*.pth
+*.h5
+*.weights
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs and databases
+*.log
+*.sqlite
+
+# Python packaging
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+*.env
+
+# Debug files
+debug.*
