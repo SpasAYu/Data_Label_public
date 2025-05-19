@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import List, Tuple
-
+import zipfile
+import io
 import cv2
 import numpy as np
 import streamlit as st
@@ -152,3 +153,23 @@ class AnnotatorComponent:
             return
 
         self.render_annotation_controls(image)
+        # === Кнопка для скачивания всего размеченного датасета ===
+        if st.button("📦 Скачать весь размеченный датасет (в zip)"):
+            zip_buffer = io.BytesIO()
+            with zipfile.ZipFile(zip_buffer, "w") as zipf:
+                for image_path in image_paths:
+                    image_file = Path(image_path)
+                    ann_file = Path(self.file_utils.get_annotation_path(image_path))
+
+                    if image_file.exists():
+                        zipf.write(image_file, arcname=f"images/{image_file.name}")
+                    if ann_file.exists():
+                        zipf.write(ann_file, arcname=f"labels/{ann_file.name}")
+
+            zip_buffer.seek(0)
+            st.download_button(
+                label="⬇️ Скачать zip-файл",
+                data=zip_buffer,
+                file_name="annotated_dataset.zip",
+                mime="application/zip"
+            )        
