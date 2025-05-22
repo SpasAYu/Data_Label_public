@@ -128,8 +128,8 @@ class AnnotatorComponent:
             st.success("Аннотации сохранены!")
 
         # Предпросмотр с подписями
-        preview = self.annotation_utils.draw_bboxes(image, annotations, self.class_names)
-        st.image(preview, use_column_width=True, channels="BGR", output_format="PNG")
+        # preview = self.annotation_utils.draw_bboxes(image, annotations, self.class_names)
+        # st.image(preview, use_column_width=True, channels="BGR", output_format="PNG")
 
     def render(self, class_names: List[str], image_paths: List[str]):
         self.class_names = class_names
